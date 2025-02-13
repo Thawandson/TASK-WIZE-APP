@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule
-  ]
+  ],
+  exports: [CabecalhoComponent] 
 })
 export class CabecalhoModule { }

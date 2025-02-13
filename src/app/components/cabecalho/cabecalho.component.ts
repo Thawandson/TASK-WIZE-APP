@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-cabecalho',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class CabecalhoComponent {
 
+  exibirAutor(){
+    Swal.fire({          
+      title: "Desenvolvido por Thawandson Costa",
+      text: "TWS TECNOLOGIA",
+      showConfirmButton: false,
+      timer: 2500
+    });
+  }
 }
