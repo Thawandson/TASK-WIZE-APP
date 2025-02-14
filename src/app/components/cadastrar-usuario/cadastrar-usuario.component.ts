@@ -51,7 +51,12 @@ export class CadastrarUsuarioComponent implements OnInit {
           }
         },
         error: (err) => {
-          console.error('Erro ao buscar CEP:', err);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Algo deu errado na consulta do seu endereço.",
+            footer: 'tente novamente mais tarde'
+          });
         }
       });
     }     
