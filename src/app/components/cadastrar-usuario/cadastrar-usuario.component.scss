@@ -1,0 +1,51 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;   
+}
+
+.cadastrar-usuario {
+    display: flex;
+    flex-direction: column;  
+}
+
+.envelope {
+    flex: 1;
+    display: flex;
+}
+
+.conteudo-principal {
+    display: flex;
+    flex: 1;
+}
+
+.conteudo-esquerda {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.conteudo-direira {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem {
+    width: 90%;   
+    object-fit: cover;
+}
+
+.cima{
+    display: block;    
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--preto-padrao);
+}
+
+.baixo{
+    font-size: 33px;
+    font-weight: 500;
+}

@@ -11,7 +11,7 @@ export class CabecalhoComponent {
   protected nomeUsuarioLogado:string = "Thawandson";
 
   usuarioLogado(){
-    return true;
+    return false;
   }
 
   exibirAutor(){
