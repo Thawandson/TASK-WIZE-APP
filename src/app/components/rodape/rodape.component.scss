@@ -10,5 +10,9 @@
     color: var(--preto-padrao);
     font-size: 14px;
     border-top: 1px solid var(--cinza-claro);     
+  }  
+
+  .rodape:hover{
+    color: var(--verde-escuro);
+    transition: 1s;
   }
-  
