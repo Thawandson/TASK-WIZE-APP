@@ -1,114 +1,84 @@
 <app-cabecalho></app-cabecalho>
 
-<div class="cadastrar-usuario">
-    <div class="envelope">
-        <main class="conteudo-principal">
-            <div class="conteudo-esquerda">
-                <div class="container-esquerda">
-                    <h1 class="titulo-principal">
-                        <span class="cima">Olá!</span>
-                        <span class="baixo">Vamos criar seu cadastro.</span>
-                    </h1>
-                    <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" class="cadastro-form">  
-                        <mat-form-field appearance="outline" class="full-width">
-                          <mat-label>Nome</mat-label>
-                          <input matInput type="text" formControlName="nome">
-                          <mat-error *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched">
-                            Nome deve ter no mínimo 3 caracteres
-                          </mat-error>
-                        </mat-form-field>      
-                        
-                        <mat-form-field appearance="outline" class="full-width">
-                          <mat-label>Email</mat-label>
-                          <input matInput type="email" formControlName="email">
-                          <mat-error *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched">
-                            Insira um email válido
-                          </mat-error>
-                        </mat-form-field>
-                      
-                        <mat-form-field appearance="outline" class="full-width">
-                          <mat-label>Senha</mat-label>
-                          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="senha">
-                          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
-                            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-                          </button>
-                          <mat-error *ngIf="cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched">
-                            Senha deve ter pelo menos 6 caracteres
-                          </mat-error>
-                        </mat-form-field>
-                      
-                        <mat-form-field appearance="outline" class="full-width">
-                          <mat-label>Confirmação de Senha</mat-label>
-                          <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmacaoSenha">
-                          <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" type="button">
-                            <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-                          </button>
-                          <mat-error *ngIf="cadastroForm.hasError('senhaDiferente')">
-                            As senhas não coincidem
-                          </mat-error>
-                        </mat-form-field>
-                      
-                        <mat-form-field appearance="outline" class="full-width">
-                          <mat-label>CEP</mat-label>
-                          <input matInput type="text" formControlName="cep" (blur)="buscarCep()">
-                          <mat-error *ngIf="cadastroForm.get('cep')?.invalid && cadastroForm.get('cep')?.touched">
-                            CEP inválido
-                          </mat-error>
-                        </mat-form-field>
-                      
-                        <mat-form-field appearance="outline" class="full-width">
-                          <mat-label>Bairro</mat-label>
-                          <input matInput type="text" formControlName="bairro" [readonly]="true">
-                        </mat-form-field>
-                      
-                        <mat-form-field appearance="outline" class="full-width">
-                          <mat-label>Localidade</mat-label>
-                          <input matInput type="text" formControlName="localidade" [readonly]="true">
-                        </mat-form-field>
-                      
-                        <mat-form-field appearance="outline" class="full-width">
-                          <mat-label>UF</mat-label>
-                          <input matInput type="text" formControlName="uf" [readonly]="true">
-                        </mat-form-field>              
-                      
-                        <button mat-raised-button color="primary" type="submit" [disabled]="cadastroForm.invalid">
-                          Enviar
-                        </button>
-                      </form> 
-                </div>
-            </div>       
+<main class="conteudo-principal">
+  <div class="conteudo-esquerda">
+      <div class="container-esquerda">
+          <h1 class="titulo-principal">
+              <span class="cima">Olá!</span>
+              <span class="baixo">Vamos criar seu cadastro.</span>
+          </h1>
+          <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" class="cadastro-form">  
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Nome</mat-label>
+                <input matInput type="text" formControlName="nome">
+                <mat-error *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched">
+                  Nome deve ter no mínimo 3 caracteres
+                </mat-error>
+              </mat-form-field>      
+              
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+                <mat-error *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched">
+                  Insira um email válido
+                </mat-error>
+              </mat-form-field>
+            
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Senha</mat-label>
+                <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="senha">
+                <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+                  <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <mat-error *ngIf="cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched">
+                  Senha deve ter pelo menos 6 caracteres
+                </mat-error>
+              </mat-form-field>
+            
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Confirmação de Senha</mat-label>
+                <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmacaoSenha">
+                <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" type="button">
+                  <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <mat-error *ngIf="cadastroForm.hasError('senhaDiferente')">
+                  As senhas não coincidem
+                </mat-error>
+              </mat-form-field>
+            
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>CEP</mat-label>
+                <input matInput type="text" formControlName="cep" (blur)="buscarCep()">
+                <mat-error *ngIf="cadastroForm.get('cep')?.invalid && cadastroForm.get('cep')?.touched">
+                  CEP inválido
+                </mat-error>
+              </mat-form-field>
+            
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Bairro</mat-label>
+                <input matInput type="text" formControlName="bairro" [readonly]="true">
+              </mat-form-field>
+            
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Localidade</mat-label>
+                <input matInput type="text" formControlName="localidade" [readonly]="true">
+              </mat-form-field>
+            
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>UF</mat-label>
+                <input matInput type="text" formControlName="uf" [readonly]="true">
+              </mat-form-field>              
+            
+              <button mat-raised-button color="primary" type="submit" [disabled]="cadastroForm.invalid">
+                Enviar
+              </button>
+            </form> 
+      </div>
+  </div>      
 
-            <div class="conteudo-direira">
-                <img class="imagem" src="assets/cubos.png" alt="Imagem de decoração de 3 cubos multicolor">
-            </div>
-        </main>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <div class="conteudo-direira">
+      <img class="imagem" src="assets/cubos.png" alt="Imagem de decoração de 3 cubos multicolor">
+  </div>
+</main>
 
 <app-rodape></app-rodape>
