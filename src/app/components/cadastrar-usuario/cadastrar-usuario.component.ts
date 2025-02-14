@@ -12,6 +12,7 @@ export class CadastrarUsuarioComponent implements OnInit {
     cadastroForm!: FormGroup;
     hidePassword = true;
     hideConfirmPassword = true;
+    loadingCep = false;
   
     constructor(
       private fb: FormBuilder,
@@ -38,6 +39,7 @@ export class CadastrarUsuarioComponent implements OnInit {
     }
   
     buscarCep() {
+      this.loadingCep = true;
       const cep = this.cadastroForm.get('cep')?.value.replace(/\D/g, '');
       
       this.cadastrarUsuarioService.buscarCep(cep).subscribe({
@@ -46,9 +48,10 @@ export class CadastrarUsuarioComponent implements OnInit {
             this.cadastroForm.patchValue({
               bairro: data.bairro,
               localidade: data.localidade,
-              uf: data.uf,
+              uf: data.uf,              
             });
           }
+          this.loadingCep = false;
         },
         error: (err) => {
           Swal.fire({
@@ -57,7 +60,9 @@ export class CadastrarUsuarioComponent implements OnInit {
             text: "Algo deu errado na consulta do seu endereço.",
             footer: 'tente novamente mais tarde'
           });
-        }
+          this.cadastroForm.get('cep')?.reset();
+          this.loadingCep = false;
+        }        
       });
     }     
     

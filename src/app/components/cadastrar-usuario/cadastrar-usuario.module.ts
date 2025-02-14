@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    HttpClientModule 
+    HttpClientModule,
+    MatProgressSpinnerModule
   ]
 })
 export class CadastrarUsuarioModule { }

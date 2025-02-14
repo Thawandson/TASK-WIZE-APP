@@ -52,7 +52,11 @@
                 <mat-error *ngIf="cadastroForm.get('cep')?.invalid && cadastroForm.get('cep')?.touched">
                   CEP inválido
                 </mat-error>
-              </mat-form-field>
+              </mat-form-field>     
+              
+              <div *ngIf="loadingCep" class="spinner-overlay">
+                <mat-progress-spinner mode="indeterminate" color="accent" diameter="50"></mat-progress-spinner>
+              </div>
             
               <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Bairro</mat-label>
