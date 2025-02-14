@@ -16,13 +16,8 @@
                           <mat-error *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched">
                             Nome deve ter no mínimo 3 caracteres
                           </mat-error>
-                        </mat-form-field>
-                      
-                        <mat-form-field appearance="outline" class="full-width">
-                          <mat-label>Data de Nascimento</mat-label>
-                          <input matInput type="date" formControlName="dataNascimento">
-                        </mat-form-field>
-                      
+                        </mat-form-field>      
+                        
                         <mat-form-field appearance="outline" class="full-width">
                           <mat-label>Email</mat-label>
                           <input matInput type="email" formControlName="email">

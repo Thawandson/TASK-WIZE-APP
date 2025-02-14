@@ -16,8 +16,7 @@ export class CadastrarUsuarioComponent implements OnInit {
   
     ngOnInit(): void {
       this.cadastroForm = this.fb.group({
-        nome: ['', [Validators.required, Validators.minLength(3)]],
-        dataNascimento: ['', Validators.required],
+        nome: ['', [Validators.required, Validators.minLength(3)]],       
         email: ['', [Validators.required, Validators.email]],
         senha: ['', [Validators.required, Validators.minLength(6)]],
         confirmacaoSenha: ['', Validators.required],
