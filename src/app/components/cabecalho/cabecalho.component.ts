@@ -8,6 +8,12 @@ import Swal from 'sweetalert2'
 })
 export class CabecalhoComponent {
 
+  protected nomeUsuarioLogado:string = "Thawandson";
+
+  usuarioLogado(){
+    return true;
+  }
+
   exibirAutor(){
     Swal.fire({          
       title: "Desenvolvido por Thawandson Costa",
