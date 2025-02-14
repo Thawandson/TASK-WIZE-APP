@@ -6,7 +6,8 @@ html, body {
 
 .cadastrar-usuario {
     display: flex;
-    flex-direction: column;  
+    flex-direction: column;
+    height: 100vh;
 }
 
 .envelope {
@@ -23,7 +24,23 @@ html, body {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: flex-start; /* Alinha o formulário à esquerda */
+    padding-left: 5%; /* Espaço da esquerda */
+}
+
+.container-esquerda {
+    width: 100%;
+    max-width: 400px; /* Largura máxima do formulário */
+}
+
+.cadastro-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os campos */
+}
+
+.full-width {
+    width: 100%;
 }
 
 .conteudo-direira {
@@ -34,18 +51,19 @@ html, body {
 }
 
 .imagem {
-    width: 90%;   
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.cima{
+.cima {
     display: block;    
     font-size: 40px;
     font-weight: 500;
     color: var(--preto-padrao);
 }
 
-.baixo{
+.baixo {
     font-size: 33px;
     font-weight: 500;
 }
