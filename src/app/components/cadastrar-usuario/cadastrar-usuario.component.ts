@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
+import { CadastrarUsuarioService } from './cadastrar-usuario.service';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -12,7 +13,10 @@ export class CadastrarUsuarioComponent implements OnInit {
     hidePassword = true;
     hideConfirmPassword = true;
   
-    constructor(private fb: FormBuilder) {}
+    constructor(
+      private fb: FormBuilder,
+      private cadastrarUsuarioService: CadastrarUsuarioService,
+      ) {}
   
     ngOnInit(): void {
       this.cadastroForm = this.fb.group({
@@ -35,20 +39,23 @@ export class CadastrarUsuarioComponent implements OnInit {
   
     buscarCep() {
       const cep = this.cadastroForm.get('cep')?.value.replace(/\D/g, '');
-      if (cep.length === 8) {
-        fetch(`https://viacep.com.br/ws/${cep}/json/`)
-          .then(response => response.json())
-          .then(data => {
-            if (!data.erro) {
-              this.cadastroForm.patchValue({
-                bairro: data.bairro,
-                localidade: data.localidade,
-                uf: data.uf,             
-              });
-            }
-          });
-      }
-    }
+      
+      this.cadastrarUsuarioService.buscarCep(cep).subscribe({
+        next: (data) => {
+          if (!data.erro) {
+            this.cadastroForm.patchValue({
+              bairro: data.bairro,
+              localidade: data.localidade,
+              uf: data.uf,
+            });
+          }
+        },
+        error: (err) => {
+          console.error('Erro ao buscar CEP:', err);
+        }
+      });
+    }     
+    
   
     onSubmit() {
       if (this.cadastroForm.valid) {
