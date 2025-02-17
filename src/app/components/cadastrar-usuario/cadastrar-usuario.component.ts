@@ -42,9 +42,11 @@ export class CadastrarUsuarioComponent implements OnInit {
     }
   
     buscarCep() {
+    console.log("ENTROU AQUI;")
       this.loadingCep = true;
-      const cep = this.cadastroForm.get('cep')?.value.replace(/\D/g, '');
+      const cep = this.cadastroForm.get('cep')?.value?.replace(/\D/g, '');
       if (cep) {
+        console.log("CEP VALIDO");
         this.cadastrarUsuarioService.buscarCep(cep).subscribe({
           next: (data) => {
             if (!data.erro) {
@@ -57,6 +59,7 @@ export class CadastrarUsuarioComponent implements OnInit {
             this.loadingCep = false;
           },
           error: (err) => {
+            console.log("CEP FUDIDO")
             this.loadingCep = false;
             Swal.fire({
               icon: "error",
@@ -68,6 +71,7 @@ export class CadastrarUsuarioComponent implements OnInit {
           }        
         });
       } else{
+        console.log("CEP vaziooo")
         this.loadingCep = false;
         this.openSnackBar("O campo CEP é obrigatório. Por favor, preencha o CEP para continuar.");     
       }   
