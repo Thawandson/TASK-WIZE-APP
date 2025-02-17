@@ -73,9 +73,15 @@
                 <input matInput type="text" formControlName="uf" [readonly]="true">
               </mat-form-field>              
             
-              <button mat-raised-button color="primary" type="submit" [disabled]="cadastroForm.invalid">
-                Enviar
-              </button>
+              <div class="botao-container">
+                <button mat-raised-button color="warn" type="button" (click)="limparFormulario()">
+                  Limpar
+                </button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="cadastroForm.invalid">
+                  Enviar
+                </button>              
+              </div>
+
             </form> 
       </div>
   </div>      

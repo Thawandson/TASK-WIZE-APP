@@ -84,6 +84,10 @@ export class CadastrarUsuarioComponent implements OnInit {
     });
   }    
 
+  limparFormulario() {
+    this.cadastroForm.reset();
+  }
+
   onSubmit() {
     if (this.cadastroForm.valid) {
       Swal.fire({
