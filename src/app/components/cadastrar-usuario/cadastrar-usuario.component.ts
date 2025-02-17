@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { CadastrarUsuarioService } from './cadastrar-usuario.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -9,11 +10,13 @@ import { CadastrarUsuarioService } from './cadastrar-usuario.service';
   styleUrls: ['./cadastrar-usuario.component.scss']
 })
 export class CadastrarUsuarioComponent implements OnInit {
+
     cadastroForm!: FormGroup;
     hidePassword = true;
     hideConfirmPassword = true;
     loadingCep = false;
-  
+    private _snackBar = inject(MatSnackBar);
+
     constructor(
       private fb: FormBuilder,
       private cadastrarUsuarioService: CadastrarUsuarioService,
@@ -41,37 +44,48 @@ export class CadastrarUsuarioComponent implements OnInit {
     buscarCep() {
       this.loadingCep = true;
       const cep = this.cadastroForm.get('cep')?.value.replace(/\D/g, '');
-      
-      this.cadastrarUsuarioService.buscarCep(cep).subscribe({
-        next: (data) => {
-          if (!data.erro) {
-            this.cadastroForm.patchValue({
-              bairro: data.bairro,
-              localidade: data.localidade,
-              uf: data.uf,              
+      if (cep) {
+        this.cadastrarUsuarioService.buscarCep(cep).subscribe({
+          next: (data) => {
+            if (!data.erro) {
+              this.cadastroForm.patchValue({
+                bairro: data.bairro,
+                localidade: data.localidade,
+                uf: data.uf,              
+              });
+            }
+            this.loadingCep = false;
+          },
+          error: (err) => {
+            this.loadingCep = false;
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Algo deu errado na consulta do seu endereço.",
+              footer: 'tente novamente mais tarde'
             });
-          }
-          this.loadingCep = false;
-        },
-        error: (err) => {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Algo deu errado na consulta do seu endereço.",
-            footer: 'tente novamente mais tarde'
-          });
-          this.cadastroForm.get('cep')?.reset();
-          this.loadingCep = false;
-        }        
-      });
-    }     
+            this.cadastroForm.get('cep')?.reset();           
+          }        
+        });
+      } else{
+        this.loadingCep = false;
+        this.openSnackBar("O campo CEP é obrigatório. Por favor, preencha o CEP para continuar.");     
+      }   
+    }  
     
+    openSnackBar ( mensagem: string ) {
+      this._snackBar.open(mensagem, 'Fechar', {
+        duration: 3000, 
+        horizontalPosition: 'center', 
+        verticalPosition: 'top',       
+      });
+   }    
   
     onSubmit() {
       if (this.cadastroForm.valid) {
         console.log('Dados enviados:', this.cadastroForm.value);
       } else {
-        console.log('Formulário inválido!');
+        this.openSnackBar("Para prosseguir, preencha todos os campos obrigatórios do formulário.");
       }
     }
 
