@@ -28,7 +28,7 @@ export class CadastrarUsuarioComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(6)]],
       confirmacaoSenha: ['', Validators.required],
-      cep: ['', [Validators.required, Validators.pattern(/^\d{5}-?\d{3}$/)]],
+      cep: ['', [Validators.required, Validators.pattern(/^\d{5}-?\d{3}$/) ,Validators.minLength(8)]],
       bairro: [''],
       localidade: [''],
       uf: ['']
@@ -44,7 +44,7 @@ export class CadastrarUsuarioComponent implements OnInit {
   buscarCep() {    
     this.loadingCep = true;
     const cep = this.cadastroForm.get('cep')?.value?.replace(/\D/g, '');
-    if (cep) {        
+    if (cep && cep.length == 8) {        
       this.cadastrarUsuarioService.buscarCep(cep).subscribe({
         next: (data) => {
           if (!data.erro) {
@@ -67,10 +67,13 @@ export class CadastrarUsuarioComponent implements OnInit {
           this.cadastroForm.get('cep')?.reset();           
         }        
       });
-    } else{     
+    } else if(cep && cep.length != 8){     
       this.loadingCep = false;
-      this.openSnackBar("O campo CEP é obrigatório. Por favor, preencha o CEP para continuar.");     
-    }   
+      this.openSnackBar("O campo CEP está incompleto, favor preencher o CEP corretamente.");     
+    }  else{
+      this.loadingCep = false;
+      this.openSnackBar("O campo CEP é obrigatório. Por favor, preencha o CEP para continuar."); 
+    }
   }  
   
   openSnackBar ( mensagem: string ) {
@@ -83,6 +86,11 @@ export class CadastrarUsuarioComponent implements OnInit {
 
   onSubmit() {
     if (this.cadastroForm.valid) {
+      Swal.fire({
+        title: "Tudo certo!",
+        text: "Você foi cadastrado com sucesso!",
+        icon: "success"
+      });
       console.log('Dados enviados:', this.cadastroForm.value);
     } else {
       this.openSnackBar("Para prosseguir, preencha todos os campos obrigatórios do formulário.");

@@ -48,7 +48,7 @@
             
               <mat-form-field appearance="outline" class="full-width">
                 <mat-label>CEP</mat-label>
-                <input matInput type="text" formControlName="cep" (blur)="buscarCep()">
+                <input matInput type="text" maxlength="8" formControlName="cep" (blur)="buscarCep()">
                 <mat-error *ngIf="cadastroForm.get('cep')?.invalid && cadastroForm.get('cep')?.touched">
                   CEP inválido
                 </mat-error>
