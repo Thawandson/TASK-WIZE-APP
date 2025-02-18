@@ -8,12 +8,12 @@
     display: flex;
     align-items: center;
     justify-content: center; 
-    padding-left: 5%;        
+    padding-left: 5%;       
+    justify-content: flex-end;   
 }
 .container-esquerda {
     width: 100%;
-    max-width: 400px; 
-    border-right: 4px solid var(--verde-escuro);
+    max-width: 400px;  
     padding-right: 40px;   
     display: flex;
     flex-direction: column;
