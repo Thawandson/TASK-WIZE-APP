@@ -7,24 +7,7 @@
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center; 
-    padding-left: 5%;       
-    justify-content: flex-end;   
-}
-.container-esquerda {
-    width: 100%;
-    max-width: 400px;  
-    padding-right: 40px;   
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.cadastro-form {
-    display: flex;
-    flex-direction: column;    
-    width: 100%;
+    justify-content: center;  
 }
 
 .full-width {
@@ -33,9 +16,7 @@
 
 .conteudo-direira {
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    display: flex;  
 }
 
 .imagem {
@@ -68,9 +49,9 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.3); 
     z-index: 9999; 
-  }
+}
   
-  .botao-container {
+.botao-container {
     display: flex;
     width: 100%;
     gap: 10px;
