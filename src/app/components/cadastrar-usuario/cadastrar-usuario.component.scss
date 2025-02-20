@@ -1,8 +1,17 @@
-.conteudo-principal {
+html, body {
+    height: 100%;
+    margin: 0;
     display: flex;
+    flex-direction: column;
+}
+
+.conteudo-principal {
     flex: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 75px;
+    padding-top: 5px;
 }
 
 .conteudo-esquerda {
@@ -12,7 +21,7 @@
     align-items: flex-start;
     justify-content: center;  
     max-width: 500px;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .full-width {
