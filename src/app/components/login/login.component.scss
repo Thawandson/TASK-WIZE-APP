@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+    margin: 0;
+}
+
+.conteudo-principal {
+
+    height: 100vh;
+    background: linear-gradient(135deg, 
+    rgba(3, 183, 243, 0.5), 
+    rgba(187, 107, 187, 0.5), 
+    rgba(243, 49, 49, 0.5), 
+    rgba(247, 247, 20, 0.692));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    backdrop-filter: blur(10px);
+}
+
+.login-container img {
+    width: 80px;
+    margin-bottom: 15px; 
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.input-field::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #ff5e7e;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #ff3b6b;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    color: white;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+.forgot-password {
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
