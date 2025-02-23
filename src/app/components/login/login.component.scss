@@ -1,20 +1,24 @@
 
-.conteudo-principal {   
-    overflow: hidden;
-    flex: 1;
+.conteudo-principal {
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 85vh; 
-    background: linear-gradient(135deg, 
-        rgba(3, 183, 243, 0.5), 
-        rgba(187, 107, 187, 0.5), 
-        rgba(243, 49, 49, 0.5), 
-        rgba(247, 247, 20, 0.692));
+    background: linear-gradient(120deg, 
+        #0f2027, #203a43, #2c5364  
+    );
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .login-container {
-    background: rgba(255, 255, 255, 0.2); 
+    background: rgba(255, 255, 255, 0.603); 
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
