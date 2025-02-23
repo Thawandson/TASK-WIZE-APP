@@ -5,32 +5,32 @@
         <img src="https://img.icons8.com/?size=100&id=26&format=png&color=000000" alt="User Icon">
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+
             <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Usuário</mat-label>
                 <input matInput type="text" formControlName="usuario">
                 <mat-error *ngIf="loginForm.get('usuario')?.invalid && loginForm.get('usuario')?.touched">
-                  Nome deve ter no mínimo 3 caracteres
+                    Nome deve ter no mínimo 3 caracteres
                 </mat-error>
-              </mat-form-field>  
-              
-              <mat-form-field appearance="outline" class="full-width">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
                 <mat-label>Senha</mat-label>
                 <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="senha">
                 <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
-                  <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>
                 <mat-error *ngIf="loginForm.get('senha')?.invalid && loginForm.get('senha')?.touched">
-                  Senha deve ter pelo menos 6 caracteres
+                    Senha deve ter pelo menos 6 caracteres
                 </mat-error>
-              </mat-form-field>             
-    
-            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" class="botao-entrar">
                 Entrar
             </button>   
-        </form>                 
-       
-        <div class="link-cadastro" (click)="toCadastrar()">Cadastra-se</div>
+        </form>
 
+        <div class="link-cadastro" (click)="toCadastrar()">Cadastra-se</div>
     </div>
 </div>
 
