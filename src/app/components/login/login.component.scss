@@ -55,35 +55,9 @@ body {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.login-btn {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-    background: #ff5e7e;
+.link-cadastro{
     color: white;
-    font-weight: bold;
+    font-size: 15px;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-.login-btn:hover {
-    background: #ff3b6b;
-}
-
-.remember-me {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    color: white;
-}
-
-.remember-me input {
-    margin-right: 5px;
-}
-
-.forgot-password {
-    color: white;
-    font-size: 12px;
-    cursor: pointer;
+    padding-top: 30px;
 }
