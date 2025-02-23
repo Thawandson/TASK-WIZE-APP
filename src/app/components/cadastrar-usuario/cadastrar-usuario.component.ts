@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
 import { CadastrarUsuarioService } from './cadastrar-usuario.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar-usuario',
@@ -20,6 +21,7 @@ export class CadastrarUsuarioComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private cadastrarUsuarioService: CadastrarUsuarioService,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
@@ -86,6 +88,10 @@ export class CadastrarUsuarioComponent implements OnInit {
 
   limparFormulario() {
     this.cadastroForm.reset();
+  }
+
+  toLogin(){
+    this.router.navigate(['/']);
   }
 
   onSubmit() {
