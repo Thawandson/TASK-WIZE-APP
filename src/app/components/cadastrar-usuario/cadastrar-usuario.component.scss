@@ -16,16 +16,15 @@ html, body {
     align-items: center;
 }
 
-.form-container {
-    width: 80%;
-    max-width: 400px;   
-    padding: 30px;
+.form-container {    
+    max-width: 500px;      
+   padding-left: 400px;   
 }
 
 .fundo {
     width: 50%;
     height: 100vh;
-    background: linear-gradient(135deg, #000d13, #2d7e99, #073a50);
+    background: linear-gradient(135deg, #000d13, #236a80, #118fc5);
     background-size: 200% 200%;
     animation: gradientShift 8s ease-in-out infinite;
 }
