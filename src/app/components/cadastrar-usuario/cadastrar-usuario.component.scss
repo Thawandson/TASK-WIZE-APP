@@ -26,10 +26,10 @@ html, body {
     height: 100vh;
     background: linear-gradient(135deg, #000d13, #236a80, #118fc5);
     background-size: 200% 200%;
-    animation: gradientShift 8s ease-in-out infinite;
+    animation: gradientPulse 6s ease-in-out infinite;
 }
 
-@keyframes gradientShift {
+@keyframes gradientPulse     {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
