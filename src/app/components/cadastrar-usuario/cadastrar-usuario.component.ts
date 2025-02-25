@@ -94,14 +94,19 @@ export class CadastrarUsuarioComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  toListaTarefas(){
+    this.router.navigate(['/lista-tarefas']);
+  }
+
   onSubmit() {
     if (this.cadastroForm.valid) {
       Swal.fire({
         title: "Tudo certo!",
         text: "Você foi cadastrado com sucesso!",
         icon: "success"
-      });
+      });      
       console.log('Dados enviados:', this.cadastroForm.value);
+      this.toListaTarefas();
     } else {
       this.openSnackBar("Para prosseguir, preencha todos os campos obrigatórios do formulário.");
     }

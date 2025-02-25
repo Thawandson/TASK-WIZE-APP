@@ -3,13 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
+  },
+
+  {
   path: 'cadastrar-usuario',
   loadChildren: () => import('./components/cadastrar-usuario/cadastrar-usuario.module').then(m => m.CadastrarUsuarioModule)
   },
+
   {
-  path: '',
-  loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule)
+    path: 'lista-tarefas',
+    loadChildren: () => import('./components/lista-tarefas/lista-tarefas.module').then(m => m.ListaTarefasModule)
   },
+ 
 
 ];
 
