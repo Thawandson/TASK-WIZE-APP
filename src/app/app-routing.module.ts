@@ -16,6 +16,11 @@ const routes: Routes = [
     path: 'lista-tarefas',
     loadChildren: () => import('./components/lista-tarefas/lista-tarefas.module').then(m => m.ListaTarefasModule)
   },
+
+  {
+    path: 'criar-tarefa',
+    loadChildren: () => import('./components/criar-tarefa/criar-tarefa.module').then(m => m.CriarTarefaModule)
+  },
  
 
 ];
